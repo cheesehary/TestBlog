@@ -9,21 +9,27 @@ class BlogsForm extends Component {
 		const { handleSubmit } = this.props;
 
 		return (
-			<form onSubmit={handleSubmit}>
-				<h3>Create a New Blog</h3>
-				<div>
-					<label>Title</label>
-					<Field name="title" component="input" type="text" />
+			<form className="form-horizontal" onSubmit={handleSubmit}>
+				<h3 className="col-md-offset-2">Create a New Blog</h3>
+				<div className="form-group">
+					<label className="col-md-1 control-label">Title</label>
+					<div className="col-md-5">
+						<Field className="form-control" name="title" component="input" type="text" />
+					</div>
 				</div>
-				<div>
-					<label>Author</label>
-					<Field name="author" component="input" type="text" />
+				<div className="form-group">
+					<label className="col-md-1 control-label">Author</label>
+					<div className="col-md-5">
+						<Field className="form-control" name="author" component="input" type="text" />
+					</div>
 				</div>
-				<div>
-					<label>Content</label>
-					<Field name="content" component="textarea" />
+				<div className="form-group">
+					<label className="col-md-1 control-label">Content</label>
+					<div className="col-md-5">
+						<Field className="form-control" name="content" component="textarea" />
+					</div>
 				</div>
-				<button type="submit">Submit</button>
+				<button className="col-md-offset-1 btn btn-primary" type="submit">Submit</button>
 			</form>
 		);
 	}

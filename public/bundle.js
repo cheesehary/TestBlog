@@ -17466,20 +17466,19 @@ var BlogItem = function (_Component) {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
-				'div',
-				null,
+				_reactRouter.Link,
+				{ className: 'list-group-item', to: '/blog/content', onClick: this.onBlogClick },
 				_react2.default.createElement(
-					_reactRouter.Link,
-					{ to: '/blog/content' },
-					_react2.default.createElement(
-						'div',
-						{ onClick: this.onBlogClick },
-						this.props.title,
-						'/',
-						this.props.author,
-						'/',
-						this.props.time
-					)
+					'h4',
+					{ className: 'list-group-item-heading' },
+					this.props.title
+				),
+				_react2.default.createElement(
+					'p',
+					{ className: 'list-group-item-text' },
+					this.props.author,
+					', ',
+					this.props.time
 				)
 			);
 		}
@@ -17550,8 +17549,8 @@ var BlogList = function (_Component) {
 				return _react2.default.createElement(_blog_item2.default, { key: blog.number, number: blog.number, title: blog.title, author: blog.author, time: blog.time });
 			});
 			return _react2.default.createElement(
-				'ul',
-				null,
+				'div',
+				{ className: 'list-group col-md-8 col-md-offset-2' },
 				blogItems
 			);
 		}
@@ -17627,25 +17626,39 @@ var BlogsContent = function (_Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'container' },
 				_react2.default.createElement(
 					'div',
 					null,
 					_react2.default.createElement(
 						_reactRouter.Link,
-						{ to: '/' },
+						{ className: 'btn btn-primary', to: '/' },
 						'Back to Blogs'
 					),
 					_react2.default.createElement(
 						'button',
-						{ onClick: this.deleteBlog.bind(this) },
+						{ className: 'col-md-offset-9 btn btn-primary', onClick: this.deleteBlog.bind(this) },
 						'Delete this Blog'
 					)
 				),
+				_react2.default.createElement('br', null),
 				_react2.default.createElement(
 					'div',
-					null,
-					this.props.current.content
+					{ className: 'panel panel-default' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-heading' },
+						_react2.default.createElement(
+							'h3',
+							{ className: 'panel-title' },
+							this.props.current.title
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'panel-body' },
+						this.props.current.content
+					)
 				)
 			);
 		}
@@ -17712,45 +17725,57 @@ var BlogsForm = function (_Component) {
 
 			return _react2.default.createElement(
 				'form',
-				{ onSubmit: handleSubmit },
+				{ className: 'form-horizontal', onSubmit: handleSubmit },
 				_react2.default.createElement(
 					'h3',
-					null,
+					{ className: 'col-md-offset-2' },
 					'Create a New Blog'
 				),
 				_react2.default.createElement(
 					'div',
-					null,
+					{ className: 'form-group' },
 					_react2.default.createElement(
 						'label',
-						null,
+						{ className: 'col-md-1 control-label' },
 						'Title'
 					),
-					_react2.default.createElement(_reduxForm.Field, { name: 'title', component: 'input', type: 'text' })
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-5' },
+						_react2.default.createElement(_reduxForm.Field, { className: 'form-control', name: 'title', component: 'input', type: 'text' })
+					)
 				),
 				_react2.default.createElement(
 					'div',
-					null,
+					{ className: 'form-group' },
 					_react2.default.createElement(
 						'label',
-						null,
+						{ className: 'col-md-1 control-label' },
 						'Author'
 					),
-					_react2.default.createElement(_reduxForm.Field, { name: 'author', component: 'input', type: 'text' })
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-5' },
+						_react2.default.createElement(_reduxForm.Field, { className: 'form-control', name: 'author', component: 'input', type: 'text' })
+					)
 				),
 				_react2.default.createElement(
 					'div',
-					null,
+					{ className: 'form-group' },
 					_react2.default.createElement(
 						'label',
-						null,
+						{ className: 'col-md-1 control-label' },
 						'Content'
 					),
-					_react2.default.createElement(_reduxForm.Field, { name: 'content', component: 'textarea' })
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-md-5' },
+						_react2.default.createElement(_reduxForm.Field, { className: 'form-control', name: 'content', component: 'textarea' })
+					)
 				),
 				_react2.default.createElement(
 					'button',
-					{ type: 'submit' },
+					{ className: 'col-md-offset-1 btn btn-primary', type: 'submit' },
 					'Submit'
 				)
 			);
@@ -17791,6 +17816,8 @@ var _blog_list2 = _interopRequireDefault(_blog_list);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -17811,17 +17838,22 @@ var BlogsIndex = function (_Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'container' },
 				_react2.default.createElement(
 					'div',
-					null,
+					{ className: 'row' },
 					_react2.default.createElement(
 						_reactRouter.Link,
-						{ to: '/blog/new' },
+						_defineProperty({ className: 'col-md-1', to: '/blog/new' }, 'className', 'btn btn-primary'),
 						'Add a Blog'
 					)
 				),
-				_react2.default.createElement(_blog_list2.default, null)
+				_react2.default.createElement('br', null),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(_blog_list2.default, null)
+				)
 			);
 		}
 	}]);
@@ -17893,13 +17925,13 @@ var BlogsNew = function (_Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'container' },
 				_react2.default.createElement(
 					'div',
 					null,
 					_react2.default.createElement(
 						_reactRouter.Link,
-						{ to: '/' },
+						{ className: 'btn btn-primary', to: '/' },
 						'Back to Blogs'
 					)
 				),

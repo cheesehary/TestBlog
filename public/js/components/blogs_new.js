@@ -16,9 +16,9 @@ class BlogsNew extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<div>
-					<Link to="/">Back to Blogs</Link>
+					<Link className="btn btn-primary" to="/">Back to Blogs</Link>
 				</div>
 				<BlogsForm onSubmit={this.handleSubmit} />
 			</div>

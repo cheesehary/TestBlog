@@ -10,12 +10,18 @@ class BlogsContent extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<div>
-					<Link to="/">Back to Blogs</Link>
-					<button onClick={this.deleteBlog.bind(this)}>Delete this Blog</button>
+					<Link className="btn btn-primary" to="/">Back to Blogs</Link>
+					<button className="col-md-offset-9 btn btn-primary" onClick={this.deleteBlog.bind(this)}>Delete this Blog</button>
 				</div>
-				<div>{this.props.current.content}</div>
+				<br />
+				<div className="panel panel-default">
+					<div className="panel-heading">
+						<h3 className="panel-title">{this.props.current.title}</h3>
+					</div>
+					<div className="panel-body">{this.props.current.content}</div>
+				</div>
 			</div>
 		)
 	}

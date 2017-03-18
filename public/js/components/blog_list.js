@@ -18,7 +18,9 @@ class BlogList extends Component {
 			return <BlogItem key={blog.number} number={blog.number} title={blog.title} author={blog.author} time={blog.time} />
 		});
 		return (
-			<ul>{blogItems}</ul>
+			<div className="list-group col-md-8 col-md-offset-2">
+				{blogItems}
+			</div>
 		);
 	}
 }

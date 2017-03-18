@@ -16,11 +16,10 @@ class BlogItem extends Component {
 
 	render() {
 		return (
-			<div>
-				<Link to="/blog/content">
-					<div onClick={this.onBlogClick}>{this.props.title}/{this.props.author}/{this.props.time}</div>
-				</Link>
-			</div>
+			<Link className="list-group-item" to="/blog/content" onClick={this.onBlogClick}>
+				<h4 className="list-group-item-heading">{this.props.title}</h4>
+				<p className="list-group-item-text">{this.props.author}, {this.props.time}</p>
+			</Link>
 		);
 	}
 }

@@ -5,11 +5,14 @@ import BlogList from './blog_list';
 export default class BlogsIndex extends Component {
 	render() {
 		return (
-			<div>
-				<div>
-					<Link to="/blog/new">Add a Blog</Link>
+			<div className="container">
+				<div className="row">
+					<Link className="col-md-1" to="/blog/new" className="btn btn-primary">Add a Blog</Link>
 				</div>
-				<BlogList />
+				<br />
+				<div className="row">
+					<BlogList />
+				</div>
 			</div>
 		);
 	}
